@@ -6,17 +6,17 @@ import java.text.DecimalFormat;
  *
  * @author Matthew
  */
-public class Reciept {
+public class RecieptInvoiceStrategy implements Invoiceable {
 
     private LineItem[] lineItems;
     private String CustID;
     private final DataStorable dataBox = new CustomerAndProductInfoNotDataBaseStrategy();
     private Customer customers;
 
-    public Reciept() {
+    public RecieptInvoiceStrategy() {
     }
 
-    public Reciept(LineItem[] lineItems, String CustID) {
+    public RecieptInvoiceStrategy(LineItem[] lineItems, String CustID) {
         this.lineItems = lineItems;
         this.CustID = CustID;
         this.customers = dataBox.getCustomerInfo(CustID);
@@ -38,6 +38,7 @@ public class Reciept {
         this.CustID = CustID;
     }
 
+    @Override
     public void printReceipt() {
         DecimalFormat formatter = new DecimalFormat("####0.00");
         double discountTotal = 0;

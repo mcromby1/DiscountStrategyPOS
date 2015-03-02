@@ -47,7 +47,7 @@ public class CashRegister {
     }
     
     public final void endSale(){
-        Reciept paperReciept = new Reciept(lineItems, custID);
+        RecieptInvoiceStrategy paperReciept = new RecieptInvoiceStrategy(lineItems, custID);
         paperReciept.printReceipt();
     }
 }
